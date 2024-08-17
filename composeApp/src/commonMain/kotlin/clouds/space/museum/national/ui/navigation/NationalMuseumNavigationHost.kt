@@ -1,16 +1,15 @@
 package clouds.space.museum.national.ui.navigation
 
-import androidx.compose.foundation.background
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import clouds.space.museum.national.ui.collections.CollectionsRoute
 import clouds.space.museum.national.ui.detail.CollectionDetailRoute
-import clouds.space.museum.national.ui.navigation.NationalMuseumDestination.*
+import clouds.space.museum.national.ui.navigation.NationalMuseumDestination.CollectionDetailScreen
+import clouds.space.museum.national.ui.navigation.NationalMuseumDestination.CollectionsScreen
 
 @Composable
 internal fun NationalMuseumNavigationHost(
