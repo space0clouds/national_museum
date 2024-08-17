@@ -14,7 +14,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -31,7 +30,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import clouds.space.museum.national.model.NationalMuseumObject
 import clouds.space.museum.national.ui.designsystem.component.NationalMuseumImage
 import clouds.space.museum.national.ui.designsystem.component.TextShape
-import coil3.compose.AsyncImagePainter
 import nationalmuseum.composeapp.generated.resources.Res
 import nationalmuseum.composeapp.generated.resources.national_treasure
 import org.jetbrains.compose.resources.stringResource
@@ -52,7 +50,10 @@ internal fun CollectionsRoute(
             contentPadding = PaddingValues(24.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            items(nationalTreasureCollections) { collection ->
+            items(
+                nationalTreasureCollections,
+                key = { collection -> collection.id },
+            ) { collection ->
                 NationalTreasureCollectionItem(collection, onCollectionClick)
             }
         }
