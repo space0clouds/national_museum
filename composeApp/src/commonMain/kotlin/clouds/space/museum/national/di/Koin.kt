@@ -1,22 +1,17 @@
 package clouds.space.museum.national.di
 
 import clouds.space.museum.national.BuildKonfig
-import clouds.space.museum.national.data.mapper.NationalMuseumObjectDetailMapper
-import clouds.space.museum.national.data.mapper.NationalMuseumObjectMapper
 import clouds.space.museum.national.data.network.api.KtorNationalMuseumApi
 import clouds.space.museum.national.data.network.api.NATIONAL_MUSEUM_HOST
 import clouds.space.museum.national.data.network.api.NATIONAL_MUSEUM_SERVICE_KEY
 import clouds.space.museum.national.data.network.api.NationalMuseumApi
-import clouds.space.museum.national.data.network.model.NetworkNationalMuseumObject
 import clouds.space.museum.national.data.repository.NationalMuseumCollectionDataRepository
 import clouds.space.museum.national.domain.repository.NationalMuseumCollectionRepository
 import clouds.space.museum.national.domain.usecase.GetCollectionDetailUseCase
 import clouds.space.museum.national.domain.usecase.GetCollectionsUseCase
 import clouds.space.museum.national.domain.usecase.GetNationalTreasureCollectionsUseCase
-import clouds.space.museum.national.model.NationalMuseumObject
 import clouds.space.museum.national.ui.collections.CollectionsViewModel
 import clouds.space.museum.national.ui.detail.CollectionDetailViewModel
-import io.kamel.core.mapper.Mapper
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -32,7 +27,6 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.serialization.json.Json
-import org.koin.compose.viewmodel.dsl.viewModel
 import org.koin.compose.viewmodel.dsl.viewModelOf
 import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.singleOf
@@ -88,7 +82,6 @@ val coroutinesModule = module {
     single(qualifier = named("main")) { Dispatchers.Main }
     single(qualifier = named("io")) { Dispatchers.IO }
     single(qualifier = named("default")) { Dispatchers.Default }
-    single(qualifier = named("main_immediate")) { Dispatchers.Main.immediate }
 }
 
 val dataModule = module {
